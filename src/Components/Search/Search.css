@@ -1,0 +1,31 @@
+.all-names-div {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background-color: #eee;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #f7e608;
+  padding: 40px 20px;
+}
+
+.heading > input {
+  padding: 8px 12px;
+  height: fit-content;
+  border: none;
+  outline-width: 0;
+}
+
+@media (max-width: 576px) {
+  .heading {
+    flex-direction: column;
+  }
+
+  .heading > h1 {
+    margin-bottom: 20px;
+  }
+}
