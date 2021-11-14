@@ -134,6 +134,16 @@ export default function Search() {
     console.log(input);
   };
 
+  useEffect(() => {
+    clearTimeout(timer);
+
+    setTimer(
+      setTimeout(function () {
+        searchNames(input);
+      }, 1000)
+    );
+  }, [input]);
+
   return (
     <div>
       <div className="heading">
@@ -145,13 +155,13 @@ export default function Search() {
           onChange={(e) => {
             e.preventDefault();
             setInput(e.target.value);
-            clearTimeout(timer);
+            // clearTimeout(timer);
 
-            setTimer(
-              setTimeout(function () {
-                searchNames(e.target.value);
-              }, 1000)
-            );
+            // setTimer(
+            //   setTimeout(function () {
+            //     searchNames(e.target.value);
+            //   }, 1000)
+            // );
           }}
         />
       </div>

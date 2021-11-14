@@ -1,11 +1,12 @@
 .Auth {
   background-color: #f7e608;
-  width: 100vw;
-  height: 100vh;
+  min-width: 100%;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* padding: 12%; */
+  box-sizing: border-box;
+  padding: 40px 0;
 }
 
 .login-heading {
@@ -17,11 +18,11 @@
 
 .login-box {
   background-color: #fff;
-  height: 600px;
   text-align: center;
-  margin-left: 200px;
+  margin-left: 10%;
   box-shadow: 1px 1px 28px 4px rgba(0, 0, 0, 0.3);
   border-radius: 15px;
+  padding: 0 20px 40px;
 }
 
 .login-box > img {
@@ -35,8 +36,52 @@
   font-size: 1.75rem;
 }
 
+@media (max-width: 1000px) {
+  .login-box {
+    margin-left: 5%;
+  }
+}
+
 @media (max-width: 900px) {
   .Auth {
     flex-direction: column;
+  }
+
+  .login-box {
+    margin: 40px 0 0;
+  }
+}
+
+@media (max-width: 550px) {
+  .login-box > img {
+    width: 300px;
+  }
+
+  .login-heading {
+    font-size: 1.5rem;
+  }
+
+  .login-box > h2 {
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .login-box > img {
+    width: 250px;
+  }
+
+  .login-heading {
+    font-size: 1.3rem;
+  }
+
+  .login-box {
+    padding: 0 12px 40px;
+  }
+
+  .login-box > h2 {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
   }
 }
