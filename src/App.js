@@ -10,7 +10,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" exact element={!isLoggedIn ? <Search /> : <Auth />} />
+        <Route path="/" exact element={isLoggedIn ? <Search /> : <Auth />} />
       </Routes>
     </Router>
   );
