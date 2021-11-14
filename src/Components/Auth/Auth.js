@@ -7,11 +7,6 @@ import "./Auth.css";
 function Auth() {
   const dispatch = useDispatch();
 
-  // const responseGoogle = (response) => {
-  //   console.log(response);
-  //   console.log(response.accessToken);
-  // };
-
   return (
     <div className="Auth">
       <div className="login-heading">

@@ -6,6 +6,7 @@ export default function Search() {
   const [input, setInput] = useState("");
   const [searchedNames, setSearchedNames] = useState([]);
   const [timer, setTimer] = useState(0);
+  const [isTyping, setIsTyping] = useState(false);
 
   // default array of names
   const names = [
@@ -117,21 +118,19 @@ export default function Search() {
 
   let i,
     randomNum = {};
-  // var timer = 0;
 
   for (i = 0; i < 100; i++) {
     randomNum[names[i]] = i;
   }
-  // console.log(randomNum);
 
   // returning names if it matches with the input entered in search box
   const searchNames = async (input) => {
     let filtered = names.filter((name) =>
       name.toLowerCase().includes(input.toLowerCase())
     );
-    setSearchedNames(filtered);
 
-    console.log(input);
+    setSearchedNames(filtered);
+    setIsTyping(false);
   };
 
   useEffect(() => {
@@ -155,6 +154,7 @@ export default function Search() {
           onChange={(e) => {
             e.preventDefault();
             setInput(e.target.value);
+            setIsTyping(true);
             // clearTimeout(timer);
 
             // setTimer(
@@ -166,9 +166,16 @@ export default function Search() {
         />
       </div>
       <div className="all-names-div">
-        {searchedNames.map((name) => (
-          <Card name={name} randomNum={randomNum} />
-        ))}
+        {isTyping ? (
+          <div className="loader-div">
+            <div className="loader"></div>
+            <p>Loading</p>
+          </div>
+        ) : (
+          searchedNames.map((name) => (
+            <Card name={name} randomNum={randomNum} />
+          ))
+        )}
       </div>
     </div>
   );
